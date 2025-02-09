@@ -1,12 +1,21 @@
-"use client"
-import React from 'react'
+"use client";
+import { useUser } from "@clerk/nextjs";
+import axios from "axios";
+import React, { useEffect } from "react";
 
-const Provider = ({children}) => {
-  return (
-    <div>
-      {children}
-    </div>
-  )
-}
+const Provider = ({ children }) => {
+  const {user} = useUser();
+  useEffect(() => {
+      user&&VerifyUser();
+  }, [user]);
 
-export default Provider
+  const VerifyUser =async() => {
+    const dataResult  = await axios.post('/api/verify-user',{
+      user:user
+    });
+    console.log(dataResult.data); 
+  };
+  return <div>{children}</div>;
+};
+
+export default Provider;

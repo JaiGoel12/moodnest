@@ -5,6 +5,6 @@ export default defineConfig({
   schema: './config/schema.js',
   dialect: 'postgresql',
   dbCredentials: {
-    url: 'postgresql://accounts:npg_AQun3KomzlG8@ep-proud-queen-a8lkrjkp-pooler.eastus2.azure.neon.tech/AI-Content-Generator?sslmode=require',
+    url: 'postgresql://accounts:npg_cpHkrQfOq60o@ep-small-boat-a4ttrt9b-pooler.us-east-1.aws.neon.tech/ai-room-redesign?sslmode=require',
   },
 });
