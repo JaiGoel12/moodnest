@@ -20,7 +20,7 @@ export async function POST(req) {
                 imageUrl: user?.imageUrl,
             }).returning({Users})
 
-            return NextResponse.json({'result':SaveResult[0]})
+            return NextResponse.json({'result':SaveResult[0].Users})
         }
         return NextResponse.json({'result':userInfo[0]})
     }
