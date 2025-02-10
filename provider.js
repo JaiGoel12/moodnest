@@ -6,24 +6,24 @@ import { UserDetailContext } from "./app/_context/UserDetailContext";
 
 const Provider = ({ children }) => {
 
-  const {user} = useUser();
-  const [userDetail,setUserDetail]=useState([]);
+  const { user } = useUser();
+  const [userDetail, setUserDetail] = useState([]);
   useEffect(() => {
-      user&&VerifyUser();
+    user && VerifyUser();
   }, [user]);
 
-  const VerifyUser =async() => {
-    const dataResult  = await axios.post('/api/verify-user',{
-      user:user
+  const VerifyUser = async () => {
+    const dataResult = await axios.post('/api/verify-user', {
+      user: user
     });
     setUserDetail(dataResult.data.result);
-  
+
   }
   return (
-  <UserDetailContext.Provider value={{userDetail,setUserDetail}}>
-  <div>
-    {children}
-    </div>
+    <UserDetailContext.Provider value={{ userDetail, setUserDetail }}>
+      <div>
+        {children}
+      </div>
     </UserDetailContext.Provider>
   )
 }
