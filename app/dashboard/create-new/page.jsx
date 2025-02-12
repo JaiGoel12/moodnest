@@ -14,7 +14,7 @@ function CreateNew() {
             ...prev,
             [fieldName]: value
         }))
-        console.log(formData)
+        //console.log(formData)
     }
 
     return (
