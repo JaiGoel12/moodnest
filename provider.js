@@ -17,6 +17,7 @@ const Provider = ({ children }) => {
       user: user
     });
     setUserDetail(dataResult.data.result);
+    console.log(dataResult.data);
 
   }
   return (
