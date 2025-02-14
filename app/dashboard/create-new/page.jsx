@@ -41,16 +41,22 @@ function CreateNew() {
                 return;
             }
     
-            // Add the file URL to formData before sending the request
-            const updatedFormData = { ...formData, imageUrl: fileUrl };
+            // Add the required fields
+            const updatedFormData = {
+                imageUrl: fileUrl,
+                roomType: formData?.roomType,
+                designType: formData?.designType,
+                additionalReq: formData?.additionalReq
+            };
     
-            // Send request with updated formData
-            // const result = await axios.post('/api/redesign-room', updatedFormData);
-            // console.log(result);
+            // Send request with updatedFormData
+            const result = await axios.post('/api/redesign-room', updatedFormData);
+            console.log(result.data);
         } catch (error) {
             console.error("Error generating AI image:", error);
         }
     };
+    
     
     const SaveRawImageToAppwrite = async (selectedImage) => {
         if (!selectedImage) {
